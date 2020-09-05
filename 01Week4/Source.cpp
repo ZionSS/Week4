@@ -1,25 +1,41 @@
 #define _CRT_SECURE_NO_WARNINGS
-#include<stdio.h>
-#include<string.h>
+#include<iostream>
 
-int main(){
-    char text[100];
-    int len;
-    scanf("%s",text);
-    len=strlen(text);
-    for(int i=0;i<len;i++)
+int main() {
+    int n;
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++)
     {
-        for(int j=len-i;j>=0;j--)
+        for (int j = n; j > i; j--)
         {
             printf("  ");
         }
-        for(int j = 0;j<=i;j++)
+        for (int j = 0; j <= i; j++)
         {
-            printf("%c ",text[i-j]);
+            if (j == 0 || j == i)
+                printf("*   ");
+            else
+            {
+                printf("    ");
+            }
+
         }
-        for(int j = 0;j<i;j++)
+        printf("\n");
+    }
+    for (int i = 1; i < n; i++)
+    {
+        for (int j = 0; j <= i; j++)
         {
-            printf("%c ",text[j+1]);
+            printf("  ");
+        }
+        for (int j = n; j > i; j--)
+        {
+            if (j == i + 1 || j == n)
+                printf("*   ");
+            else
+            {
+                printf("    ");
+            }
         }
         printf("\n");
     }
